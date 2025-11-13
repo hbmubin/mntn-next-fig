@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+:root {
+  --bgBlue: rgba(11, 29, 38, 1);
+}
+
+@theme inline {
+  --color-bgBlue: var(--bgBlue);
+  --font-gilroy:  var(--font-gilroy), sans-serif;
+  --font-chronicle: var(--font-chronicle), sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+.bg-img {
+  background-image: url('../../public/img/Group\ 18.png');
+  @apply bg-no-repeat bg-top 2xl:bg-contain bg-size-[700px_auto] sm:bg-size-[1120px_auto] lg:bg-size-[1580px_auto]
+}
+
+.para-default{
+  @apply font-gilroy sm:text-lg text-sm sm:font-bold sm:leading-8 leading-6 text-white tracking-wide font-semibold
+}
