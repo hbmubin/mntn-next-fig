@@ -3,13 +3,35 @@ import logo from "../../public/svg/Logo.svg";
 import account from "../../public/svg/Icons General _ cart.svg";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoCloseSharp } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isSticky, setIsSticky] = useState(false)
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  handleScroll();
+
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
+
+console.log(isSticky)
+
   return (
-    <header className="">
-      <div className="lg:px-20 sm:px-10 px-3 mx-auto lg:pt-16 pt-5 flex justify-between items-center">
+    <header className={`duration-300 ${isSticky ? "sticky top-0 bg-black/30 lg:py-10 py-5 z-10 lg:backdrop-blur-sm" : "lg:pt-16 pt-5"}`}>
+      <div className="lg:px-20 sm:px-10 px-3 mx-auto flex justify-between items-center">
         <div className="sm:w-[108px] w-20">
           <Image className=" " src={logo} alt="logo"  />
         </div>

@@ -18,7 +18,6 @@ export default function Home() {
           if (entry.isIntersecting) {
             const id = entry.target.id;
             if (id) {
-              console.log("Active section:", id);
               setSection(id);
             }
           }
@@ -33,7 +32,6 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  console.log(section)
   return (
     <div className="bg-img bg-bgBlue">
       <div className="absolute xl:left-0 -left-16 w-min top-1/2 z-10  sm:block hidden">

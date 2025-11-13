@@ -20,3 +20,4 @@ html {
 .para-default{
   @apply font-gilroy sm:text-lg text-sm sm:font-bold sm:leading-8 leading-6 text-white tracking-wide font-semibold
 }
+
